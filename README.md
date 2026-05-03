@@ -2,84 +2,98 @@
 
 ### A Community-Based Gamified Approach to Combat Food Waste
 
-ReFoodify is a gamified food waste reduction platform that encourages sustainable dining through QR-based meal tracking, rewards, and feedback. Built with React Native, Node.js, and MongoDB, it promotes mindful consumption and aims to create a zero food waste ecosystem.
+ReFoodify is a full-stack, multi-module platform designed to reduce food waste in university canteens and restaurants through QR-based tracking, gamification, and real-time coordination between students, restaurants, and NGOs.
 
 ---
 
 ## 🚀 Overview
 
-Food waste is a major issue in institutional dining. ReFoodify addresses this by combining:
+ReFoodify tackles food waste by introducing accountability and incentives into daily dining behavior.
 
-* 📱 QR-based meal tracking
-* 🎮 Gamification (points, badges, leaderboard)
-* 📊 Feedback-driven system
-* 🌱 Sustainable consumption
+* 📱 Students scan QR codes after meals
+* 🎮 Earn rewards through gamification
+* 🍴 Restaurants monitor food usage
+* 🤝 NGOs coordinate surplus redistribution
 
-Users scan a QR code after meals, submit feedback, and earn rewards for responsible eating.
+The system creates a connected ecosystem that promotes sustainable consumption.
 
 ---
 
 ## 🏗️ System Architecture
 
 ```
-Mobile App (React Native)
+React Native App (Students)
         ↓
-Backend API (Node.js + Express)
+Node.js + Express API
         ↓
-Database (MongoDB Atlas)
+MongoDB Atlas Database
+        ↓
+React Dashboards (Admin / NGO / Restaurant)
 ```
-
-### Additional Dashboards
-
-* 🧑‍💼 Admin Dashboard
-* 🍴 Restaurant Dashboard
-* 🤝 NGO Dashboard
 
 ---
 
-## ✨ Features
+## ✨ Core Modules
 
-### 👤 Student Module
+### 👤 Student Mobile Application (`public-app`)
 
-* QR code scanning after meals
-* Points, badges, and rewards
-* Leaderboard system
-* Profile tracking
+* QR code-based meal validation
+* Reward system (points, badges, leaderboard)
+* Feedback submission
+* User profile and activity tracking
 
-### 🧑‍💼 Admin Dashboard
+---
 
-* User management
-* System monitoring
+### 🍴 Restaurant Dashboard (`restaurant-dashboard`)
 
-### 🍴 Restaurant Dashboard *(Planned/Partial)*
+* Menu and food management
+* Track food preparation and consumption
+* Monitor surplus food availability
 
-* Food tracking
-* Menu management
+---
 
-### 🤝 NGO Integration *(Future Scope)*
+### 🤝 NGO Dashboard (`ngo-dashboard`)
 
-* Surplus food redistribution
-* Real-time coordination
+* View surplus food listings
+* Coordinate pickup and redistribution
+* Manage food donation workflow
+
+---
+
+### 🧑‍💼 Admin Dashboard (`admin-dashboard`)
+
+* Manage users and system data
+* Monitor platform activity
+* Maintain system control
+
+---
+
+### ⚙️ Backend API (`backend`)
+
+* RESTful APIs using Express.js
+* MongoDB Atlas integration
+* JWT-based authentication
+* Handles all business logic and data flow
 
 ---
 
 ## 🛠️ Tech Stack
 
-**Frontend**
+### Frontend
 
 * React Native (Mobile App)
 * React.js (Dashboards)
 
-**Backend**
+### Backend
 
 * Node.js
 * Express.js
 
-**Database**
+### Database
 
 * MongoDB Atlas
 
-**Authentication**
+### Authentication
 
 * JWT (JSON Web Tokens)
 
@@ -92,9 +106,31 @@ ReFoodify/
 │
 ├── backend/
 ├── public-app/
+│   ├── components/
+│   ├── context/
+│   ├── navigation/
+│   └── screens/
+│
 ├── admin-dashboard/
+│   ├── public/
+│   └── src/
+│
 ├── ngo-dashboard/
+│   ├── public/
+│   └── src/
+│       ├── components/
+│       ├── context/
+│       ├── pages/
+│       └── styles/
+│
 ├── restaurant-dashboard/
+│   ├── public/
+│   └── src/
+│       ├── components/
+│       ├── context/
+│       ├── pages/
+│       └── styles/
+│
 └── README.md
 ```
 
@@ -109,6 +145,8 @@ git clone https://github.com/akshay002-ln/-ReFoodify-A-Community---Based-Gamifie
 cd ReFoodify
 ```
 
+---
+
 ### 2. Backend Setup
 
 ```
@@ -117,7 +155,7 @@ npm install
 npm start
 ```
 
-Create `.env`:
+Create `.env` file:
 
 ```
 MONGO=your_mongodb_connection_string
@@ -127,7 +165,7 @@ PORT=4000
 
 ---
 
-### 3. Mobile App
+### 3. Run Mobile App
 
 ```
 cd public-app
@@ -137,7 +175,9 @@ npm start
 
 ---
 
-### 4. Dashboards
+### 4. Run Dashboards
+
+Run each module separately:
 
 ```
 cd admin-dashboard
@@ -145,7 +185,17 @@ npm install
 npm start
 ```
 
-(Same for NGO & Restaurant dashboards)
+```
+cd ngo-dashboard
+npm install
+npm start
+```
+
+```
+cd restaurant-dashboard
+npm install
+npm start
+```
 
 ---
 
@@ -154,36 +204,36 @@ npm start
 | Variable   | Description               |
 | ---------- | ------------------------- |
 | MONGO      | MongoDB connection string |
-| JWT_SECRET | Authentication secret     |
-| PORT       | Server port               |
-
----
-
-## 🎯 Future Enhancements
-
-* Real-time food surplus tracking
-* NGO redistribution system
-* AI-based demand prediction
-* Advanced analytics
+| JWT_SECRET | Authentication secret key |
+| PORT       | Backend server port       |
 
 ---
 
 ## 📌 Problem Statement
 
-Large amounts of edible food are wasted daily in canteens and restaurants.
-ReFoodify aims to reduce this waste through gamification and technology-driven accountability.
+Large quantities of edible food are wasted daily in canteens and restaurants.
+ReFoodify addresses this issue by promoting responsible consumption and enabling redistribution through a connected digital ecosystem.
+
+---
+
+## 🎯 Key Highlights
+
+* Multi-role system (Student, Restaurant, NGO, Admin)
+* Gamified behavior change model
+* QR-based real-time validation
+* Scalable full-stack architecture
 
 ---
 
 ## 🤝 Contribution
 
-Contributions are welcome. Fork the repo and submit a pull request.
+Contributions are welcome. Fork the repository and submit a pull request.
 
 ---
 
 ## 📜 License
 
-For educational and research purposes.
+This project is intended for academic and educational purposes.
 
 ---
 
